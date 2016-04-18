@@ -1,0 +1,40 @@
+{
+  "name": "to-ico",
+  "version": "0.0.0",
+  "description": "Convert PNG to ICO in memory",
+  "license": "MIT",
+  "repository": "kevva/to-ico",
+  "author": {
+    "name": "Kevin Martensson",
+    "email": "kevinmartensson@gmail.com",
+    "url": "github.com/kevva"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "buffer",
+    "convert",
+    "fast",
+    "ico",
+    "png"
+  ],
+  "dependencies": {
+    "pngjs": "^2.2.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "file-type": "^3.8.0",
+    "pify": "^2.3.0",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  }
+}
