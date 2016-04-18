@@ -103,5 +103,5 @@ module.exports = input => Promise.all(input.map(x => parsePng(x))).then(data => 
 		len += header.length + dib.length;
 	});
 
-	return Buffer.concat(arr);
+	return Buffer.concat(arr, len);
 });
