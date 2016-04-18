@@ -89,19 +89,19 @@ module.exports = input => Promise.all(input.map(x => parsePng(x))).then(data => 
 	let len = header.length;
 	let offset = constants.headerSize + (constants.directorySize * data.length);
 
-	data.forEach(x => {
+	for (const x of data) {
 		const dir = createDirectory(x, offset);
 		arr.push(dir);
 		len += dir.length;
 		offset += x.data.length + constants.bitmapSize;
-	});
+	}
 
-	data.forEach(x => {
+	for (const x of data) {
 		const header = createBitmap(x, constants.colorMode);
 		const dib = createDib(x.data, x.width, x.height, x.bpp);
 		arr.push(header, dib);
 		len += header.length + dib.length;
-	});
+	}
 
 	return Buffer.concat(arr, len);
 });
