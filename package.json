@@ -26,7 +26,7 @@
     "png"
   ],
   "dependencies": {
-    "pngjs": "^2.2.0"
+    "parse-png": "^1.0.0"
   },
   "devDependencies": {
     "ava": "*",
