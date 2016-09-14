@@ -29,13 +29,29 @@ toIco(files).then(buf => {
 
 ## API
 
-### toIco(input)
+### toIco(input, [options])
 
 #### input
 
-Type: `Array`
+Type: `Array` `string`
 
 An array of PNG image buffers. The images must have a size of `16x16`, `24x24`, `32x32`, `48x48`, `64x64`, `128x128` or `256x256`.
+
+#### options
+
+##### resize
+
+Type: `boolean`<br>
+Default: `false`
+
+Use the largest image and resize to sizes defined using the [sizes](#sizes) option.
+
+##### sizes
+
+Type: `Array`<br>
+Default: `[16, 24, 32, 48, 64, 128, 256]`
+
+Array of sizes to use when resizing.
 
 
 ## Related
