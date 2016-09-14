@@ -35,7 +35,7 @@ toIco(files).then(buf => {
 
 Type: `Array` `string`
 
-An array of PNG image buffers. The images must have a size of `16x16`, `24x24`, `32x32`, `48x48`, `64x64`, `128x128` or `256x256`.
+An array of PNG image buffers.
 
 #### options
 
