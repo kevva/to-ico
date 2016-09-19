@@ -124,7 +124,7 @@ const resizeImages = (data, opts) => {
 		})
 		.reduce((a, b) => a.width > b.width ? a : b, {});
 
-	return Promise.all(opts.sizes.filter(x => x <= data.width).map(x => resizeImg(data.data, {
+	return Promise.all(opts.sizes.filter(x => x <= data.width).sort((a, b) => b - a).map(x => resizeImg(data.data, {
 		width: x,
 		height: x
 	})));
