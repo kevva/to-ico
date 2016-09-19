@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import fileType from 'file-type';
+import icojs from 'icojs';
 import pify from 'pify';
 import test from 'ava';
 import fn from './';
@@ -14,5 +15,9 @@ test('generate ico', async t => {
 
 test('resize option', async t => {
 	const file = await pify(fs.readFile)(path.join(__dirname, 'fixtures', '256.png'));
-	t.deepEqual(fileType(await fn(file, {resize: true})), {ext: 'ico', mime: 'image/x-icon'});
+	const sizes = await icojs.parse((await fn(file, {resize: true})).buffer);
+
+	for (const x of [16, 24, 32, 48, 64, 128, 256]) {
+		t.true(sizes.some(y => y.width === x && y.height === x));
+	}
 });
