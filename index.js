@@ -24,8 +24,8 @@ const createHeader = n => {
 const createDirectory = (data, offset) => {
 	const buf = new Buffer(constants.directorySize);
 	const size = data.data.length + constants.bitmapSize;
-	const width = data.width <= 256 ? 0 : data.width;
-	const height = data.height <= 256 ? 0 : data.height;
+	const width = data.width === 256 ? 0 : data.width;
+	const height = data.height === 256 ? 0 : data.height;
 	const bpp = data.bpp * 8;
 
 	buf.writeUInt8(width, 0);
@@ -124,7 +124,7 @@ const resizeImages = (data, opts) => {
 		})
 		.reduce((a, b) => a.width > b.width ? a : b, {});
 
-	return Promise.all(opts.sizes.filter(x => x <= data.width).sort((a, b) => b - a).map(x => resizeImg(data.data, {
+	return Promise.all(opts.sizes.filter(x => x <= data.width).map(x => resizeImg(data.data, {
 		width: x,
 		height: x
 	})));
