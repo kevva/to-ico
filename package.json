@@ -27,18 +27,15 @@
   ],
   "dependencies": {
     "arrify": "^1.0.1",
-    "icojs": "^0.4.1",
     "image-size": "^0.5.0",
     "parse-png": "^1.0.0",
     "resize-img": "^1.1.0"
   },
   "devDependencies": {
     "ava": "*",
-    "file-type": "^3.8.0",
+    "file-type": "^4.3.0",
+    "icojs": "^0.7.2",
     "pify": "^2.3.0",
     "xo": "*"
-  },
-  "xo": {
-    "esnext": true
   }
 }
