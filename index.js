@@ -1,6 +1,6 @@
 'use strict';
 const arrify = require('arrify');
-const bufferAllocMod = require('buffer-alloc');
+const bufferAlloc = require('buffer-alloc');
 const imageSize = require('image-size');
 const parsePng = require('parse-png');
 const resizeImg = require('resize-img');
@@ -11,8 +11,6 @@ const constants = {
 	directorySize: 16,
 	headerSize: 6
 };
-
-const bufferAlloc = typeof Buffer.alloc === 'function' ? Buffer.alloc : bufferAllocMod;
 
 const createHeader = n => {
 	const buf = bufferAlloc(constants.headerSize);
